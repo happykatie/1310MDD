@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<title>Spark</title>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+	
+	<script type="text/javascript" src="js/spark-app/app.js"></script>
+	<script type="text/javascript" src="js/spark-app/controllers/mainController.js"></script>
+	<link rel="stylesheet" href="css/main.css">
+    <script src="js/project.js"></script>
+</head>
+
+<body>
+
+    <div class='banner'>
+        <div class='container'>
+         <h1>Spark</h1>
+         
+        </div>
+    </div>
+    
+    <div class="container main-frame" ng-app="SparkApp" ng-controller="mainController" ng-init="init()">
+		<div class="search-box row-fluid form-inline"></div>
+        <div class="results-top"></div>
+        <div class="results-container">
+            <ul class="project-list">
+            
+	            <li ng-repeat="project in results">
+					<div class="row-fluid">
+						<div class="span3">
+							
+							<div class="span6">
+								<h3>{{data.projects.name}}</h3>
+								<p></p>
+							</div>
+							
+						</div>	
+					</div>
+				</li>
+				
+            </ul>
+        </div>
+        <div class="results-bottom"></div>
+	</div>
+	
+</body>
+</html>
