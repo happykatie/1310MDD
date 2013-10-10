@@ -9,3 +9,9 @@ Setup base file structure (MVC), using AngularJS
 Setup API proof of concept for Behance API - just a description of the Spark app, and some JSON data that was returned from a query
 Setup database for Spark app users
 Setup database 'users' table structure - still need password security
+
+
+[1.2]
+Previously included some responsiveness to visual framework - will need adjustment
+Designed style tile for Spark app (Signup, Listing and Details - uniform style)
+Started implementing style guide - will improve as more content is added
