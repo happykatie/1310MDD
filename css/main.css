@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin);
+
 body {
    background-color: #444444;
 }
@@ -7,26 +8,35 @@ h1, h2, h3 {
 }
 .banner {
     background-color: #000000;
+    border-bottom: 10px solid #630460;
     color: #FFF;
     height: 100px;
 }
 .banner h1 {
     font-size: 40px;
     line-height: 50px;
-    text-align: center;
+    text-align: left;
+    display:block;
+}
+
+.banner img{
+	padding-top: 5px;
+	display:block;
+	
 }
 .main-frame {
     background-color: #FFF;
     padding: 10px;
     margin-top: -30px;
 }
+
 .search-box {
     line-height: 50px;
-    background-color: #333;
-    color: #FFF;
-    margin-bottom: 10px;
-    
+    background-color: #000;
+    color: #fff;
+    margin: 0px 0px 10px 0px;
 }
+
 .search-box label {
     font-weight: bold;
     margin-left: 10px;
@@ -35,20 +45,60 @@ h1, h2, h3 {
 .project-list {
     list-style: none;
     margin: 0px;
+    padding: 0px;
 }
 
 .project-list h3 {
     margin-top: 0px;
 }
 
+.project-list .ratings {
+    line-height: 30px;
+    text-align: center;
+    background-color: #444;
+    color: #FFF;
+    margin-top: 10px;
+    
+}
+
 .project-list li {
     padding-bottom: 10px;
     margin-bottom: 10px;
-    border-bottom: dotted 1px #000000;
+    border-bottom: solid 1px #000000;
+}
+
+.project-list li a{
+	color:#131896;
 }
 
 .project-list li:last-child {
     border-bottom: none;
     padding-bottom: 0px;
     margin-bottom: 0px;
+}
+
+.project-info {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    color: #444;
+    font-size: 14px;
+}
+
+.project-info li {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    border-bottom: solid 1px #CCC;
+    line-height: 40px;
+}
+
+.project-info li:last-child {
+    border-bottom: none;
+}
+
+.project-info .genre {
+    cursor: pointer;
+    display: inline-block;
+    color: #131896;
+    font-size: 12px;
 }

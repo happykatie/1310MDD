@@ -1,8 +1,15 @@
 <!doctype html>
-<html>
+
+<html lang="en">
 <head>
+	<!--set the meta character to utf-8 b/c I'm using special characters-->
+	<meta charset=”utf-8”> 
+	<!--enable the bootstrap grid system-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Spark</title>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 	
@@ -13,33 +20,50 @@
 </head>
 
 <body>
-
+	
     <div class='banner'>
         <div class='container'>
-         <h1>Spark</h1>
-         
+         <img src="img/sparklogo_330x60.png" class="img-responsive" />
         </div>
     </div>
     
-    <div class="container main-frame" ng-app="SparkApp" ng-controller="mainController" ng-init="init()">
-		<div class="search-box row-fluid form-inline"></div>
+    <div class="container main-frame" ng-app="SparkApp" id="ng-app" ng-controller="mainController" ng-init="init()">
+    
+		<div class="search-box row form-inline">
+			<label>Filter: </label>
+			<!--use ng-model to bind input to the $scope.filterText variable-->
+			<input type="text" ng-model="filterText"/>
+			<label>Field: </label>
+			<select ng-model="fieldFilter" ng-options="label for label in availableFields">
+				<option value="">All</option>
+			</select>
+		</div><!-- end search-box -->
+		
         <div class="results-top"></div>
         <div class="results-container">
             <ul class="project-list">
-            
-	            <li ng-repeat="project in results">
-					<div class="row-fluid">
-						<div class="span3">
-							
-							<div class="span6">
-								<h3>{{data.projects.name}}</h3>
-								<p></p>
-							</div>
-							
-						</div>	
-					</div>
-				</li>
+            <!-- ng-repeat dynamically creates li elements based on the data within results, filter with filterText variable -->
+            <li ng-repeat="projects in results | filter: filterText | isField:fieldFilter">
+				<div class="row">
 				
+					<div class="col-sm-6">
+						<img src="{{projects.covers.404}}" class="img-responsive" />
+					</div><!-- end col-sm-6 -->
+					
+					<div class="col-sm-6">
+						<h3><a href="{{projects.url}}">{{projects.name}}</a></h3>
+						<ul class="project-info">
+							<li>Fields: <span class="label genre" ng-repeat="field in projects.fields" ng-click="setFieldFilter(field)">{{field}}</span></li>
+							<li>Authors: {{projects.owners.id.display_name}}</li>
+							<li>Published: {{projects.published_on}}</li>
+							<li>ID: {{projects.id}}</li>
+						</ul>
+						<div class="ratings"><strong>Appreciations:</strong><span class="label glyphicon glyphicon-star"><i class="icon-star"></i></span><strong>{{projects.stats.appreciations}}</strong></div>
+					</div><!-- end col-sm-6 -->
+							
+					</div>	
+				</div>
+			</li><!-- end project in results array -->	
             </ul>
         </div>
         <div class="results-bottom"></div>
