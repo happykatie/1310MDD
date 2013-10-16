@@ -1,3 +1,4 @@
+//Controller establishes data-binding between the model and the view
 app.controller("mainController", function($scope, $http){
 	
 	$scope.apiKey = "WfS8an7aqWaOjYzGnPIfCAJkMi1wd0Us";
@@ -13,7 +14,7 @@ app.controller("mainController", function($scope, $http){
     $scope.init = function() {
         
         /* BEHANCE api call *//**/
-        $http.jsonp('http://behance.net/v2/projects?api_key=' + $scope.apiKey + '&callback=JSON_CALLBACK')
+        $http.jsonp('http://behance.net/v2/projects?api_key=' + $scope.apiKey + '&page=1&callback=JSON_CALLBACK')
         .success(function(data) {
         	
         	console.log(data.projects); //============================

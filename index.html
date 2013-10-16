@@ -1,6 +1,6 @@
 <!doctype html>
-
-<html lang="en">
+<!--app template-->
+<html lang="en" ng-app="SparkApp" id="ng-app">
 <head>
 	<!--set the meta character to utf-8 b/c I'm using special characters-->
 	<meta charset=”utf-8”> 
@@ -20,15 +20,21 @@
 </head>
 
 <body>
-	
-    <div class='banner'>
+	<!-- -->
+	<div class='banner'>
         <div class='container'>
          <img src="img/sparklogo_330x60.png" class="img-responsive" />
         </div>
     </div>
     
-    <div class="container main-frame" ng-app="SparkApp" id="ng-app" ng-controller="mainController" ng-init="init()">
-    
+	<!--<div class="view-container main-frame">
+    	
+		<div ng-view class="view-frame"></div>
+		
+	</div> end view-container -->
+	
+    <div class="container main-frame" ng-controller="mainController" ng-init="init()">
+    <p>Total number of projects: {{results.length}}</p>
 		<div class="search-box row form-inline">
 			<label>Filter: </label>
 			<!--use ng-model to bind input to the $scope.filterText variable-->
@@ -65,9 +71,13 @@
 				</div>
 			</li><!-- end project in results array -->	
             </ul>
-        </div>
+            <div>
+            	<p><a>1</a> 2 3 4 5</p>
+            </div>
+        </div><!-- end results container -->
         <div class="results-bottom"></div>
-	</div>
+        
+	</div><!-- end container ng-controller -->
 	
 </body>
 </html>
