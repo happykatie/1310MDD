@@ -15,3 +15,17 @@ Setup database 'users' table structure - still need password security
 Previously included some responsiveness to visual framework - will need adjustment
 Designed style tile for Spark app (Signup, Listing and Details - uniform style)
 Started implementing style guide - will improve as more content is added
+
+[2.1]
+Resubmitted files with views for MVC format. Still woking on the AngularJS views, so for now I have included php views
+
+[2.2]
+Added more API functionality and more responsive styling
+
+[3.1]
+Included index.php with the login view. 
+Currently having login issues - I invested most of my time trying to figure out angularjs with firebase for data storage
+To get an idea of the profile view (read view), see index.html
+Still working on CRUD functionality - having trouble setting up firebase db
+Most recent sql dump = assets/sql/mdd1310_2013-10-16.sql
+
