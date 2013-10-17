@@ -2,6 +2,9 @@
 <!--app template-->
 <html lang="en" ng-app="SparkApp" id="ng-app">
 <head>
+	<!--install firebase-->
+	<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+	<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
 	<!--set the meta character to utf-8 b/c I'm using special characters-->
 	<meta charset=”utf-8”> 
 	<!--enable the bootstrap grid system-->
@@ -20,6 +23,7 @@
 </head>
 
 <body>
+	
 	<!-- -->
 	<div class='banner'>
         <div class='container'>
@@ -27,14 +31,26 @@
         </div>
     </div>
     
-	<!--<div class="view-container main-frame">
+    
+	<!-- TESTING ANGULARJS VIEWS - WORK IN PROGRESS
+	<div class="view-container main-frame">
     	
 		<div ng-view class="view-frame"></div>
 		
 	</div> end view-container -->
 	
     <div class="container main-frame" ng-controller="mainController" ng-init="init()">
-    <p>Total number of projects: {{results.length}}</p>
+    
+    <!-- TESTING FIREBASE --- WORK IN PROGRESS
+    <div id="loginDiv">
+	  <span ng-show="user">
+	    {{user.name}} | <a href="#" ng-click="logout()">Logout</a>
+	  </span>
+	  <a href="#" ng-hide="user" ng-click="login()">Login</a>
+	</div>
+	-->
+	
+    <!--<p>Total number of projects: {{results.length}}</p>  FOR TESTING PURPOSES -->
 		<div class="search-box row form-inline">
 			<label>Filter: </label>
 			<!--use ng-model to bind input to the $scope.filterText variable-->
@@ -60,9 +76,9 @@
 						<h3><a href="{{projects.url}}">{{projects.name}}</a></h3>
 						<ul class="project-info">
 							<li>Fields: <span class="label genre" ng-repeat="field in projects.fields" ng-click="setFieldFilter(field)">{{field}}</span></li>
-							<li>Authors: {{projects.owners.id.display_name}}</li>
-							<li>Published: {{projects.published_on}}</li>
-							<li>ID: {{projects.id}}</li>
+							<!-- <li>Authors: {{projects.owners.id.display_name}}</li> THIS WILL BE FOR DETAIL PG-->
+							<li>Published: {{projects.published_on}}</li> 
+							<!-- <li>ID: {{projects.id}}</li> THIS WILL BE FOR DETAIL PG-->
 						</ul>
 						<div class="ratings"><strong>Appreciations:</strong><span class="label glyphicon glyphicon-star"><i class="icon-star"></i></span><strong>{{projects.stats.appreciations}}</strong></div>
 					</div><!-- end col-sm-6 -->
@@ -72,7 +88,7 @@
 			</li><!-- end project in results array -->	
             </ul>
             <div>
-            	<p><a>1</a> 2 3 4 5</p>
+            	<!-- <p><a>1</a> 2 3 4 5</p> --> 
             </div>
         </div><!-- end results container -->
         <div class="results-bottom"></div>

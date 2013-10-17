@@ -67,3 +67,25 @@ app.filter('isField', function() {
     };
 });
 
+/*****  FIREBASE CODE --- WORK IN PROGRESS  *****/
+/*
+angular.module("SparkApp", ["firebase"]).controller(
+  "SparkApp", ["$scope", "angularFireCollection", "angularFireAuth",
+  function($scope, angularFireCollection, angularFireAuth) {
+    var url = "https://mdd1310.firebaseio.com/";
+    angularFireAuth.initialize(url, {scope: $scope, name: "user"});
+
+    var ref = new Firebase(url);
+    $scope.comments = angularFireCollection(ref.limit(10));
+
+    $scope.login = function() {
+      angularFireAuth.login('password', {
+		  email: '<email@domain.com>',
+		  password: '<password>');
+    }
+    $scope.logout = function() {
+      angularFireAuth.logout();
+    }
+  }
+]);
+*/
