@@ -1,0 +1,44 @@
+<div class="container main-frame" ng-controller="mainController" ng-init="init()">
+<div class="col-sm-12">
+<div id="login">
+
+<h2>Please Login Below</h2>
+
+<form class="form-horizontal" role="form" action="?" method="post">
+	<input type="hidden" name="formtoken" value="" />
+	
+	<div class="form-group">	
+    <label for="exampleInputEmail1">
+        <span>Email</span>
+        <input type="email" class="form-control" placeholder="Enter email" id="exampleInputEmail1" ng-model="email" />
+    </label>
+	</div>
+
+	<div class="form-group">    
+    <label for="exampleInputPassword1">
+        <span>Password</span>
+        <input type="password" class="form-control" placeholder="password" id="exampleInputPassword1" ng-model="pass" />
+    </label>
+	</div>
+	<div class="form-group">    
+    <label ng-cloak ng-show="createMode">
+        <span>confirm pass</span>
+        <input type="password" class="form-control" placeholder="password" ng-model="confirm" />
+    </label>
+	</div>  
+  
+    <button ng-click="login()" ng-hide="createMode" type="button" class="btn btn-default btn-sm dropdown-toggle">Log In</button>
+    
+    <button ng-click="createMode = true" ng-hide="createMode" type="button" class="btn btn-default btn-sm dropdown-toggle">Create Account</button>
+    
+    <button ng-cloak ng-show="createMode" ng-click="createAccount()" type="button" class="btn btn-default btn-sm dropdown-toggle">Ready to Create</button>
+
+    <p ng-show="err" class="error">{{err}}</p>
+    
+</form>
+
+		  
+</div> <!-- end login -->		
+</div> <!-- end col-sm-12 -->
+</div> <!-- end container -->
+

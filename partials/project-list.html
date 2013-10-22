@@ -1,8 +1,8 @@
-<!-- LIST VIEW -->
-
-<div class="container main-frame" ng-controller="mainController" ng-init="init()">
+<div class="container main-frame" ng-controller="mainController">
 
 <p>Total number of projects: {{results.length}}</p>
+<p class="status good" ng-show="auth" ng-cloak>You are logged in</p>
+<p class="status" ng-hide="auth" ng-cloak>You are not logged in</p>
 
 	<div class="search-box row form-inline">
 		<label>Filter: </label>
@@ -22,7 +22,7 @@
 			<div class="row">
 			
 				<div class="col-sm-6">
-					<img src="{{projects.covers.404}}" class="img-responsive" />
+					<img src="{{projects.covers.404}}" class="img-responsive img-polaroid" />
 				</div><!-- end col-sm-6 -->
 				
 				<div class="col-sm-6">
@@ -42,4 +42,11 @@
         </ul>
     </div><!-- end results container -->
     <div class="results-bottom"></div>
+    <div class="btn-toolbar">
+		<div type="button" class="btn-group btn-group-xs">1</div>
+		<div type="button" class="btn-group btn-group-xs">2</div>
+		<div type="button" class="btn-group btn-group-xs">3</div>
+		<div type="button" class="btn-group btn-group-xs">4</div>
+		<div type="button" class="btn-group btn-group-xs">5</div>
+    </div>
 </div><!-- end container ng-controller -->
