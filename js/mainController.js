@@ -3,7 +3,7 @@
 /* Controllers */
 //Controller establishes data-binding between the model and the view
 
-angular.module('SparkApp.controllers', [])
+angular.module('SparkApp.mainController', [])
 	.controller('LoginCtrl', ['$scope', 'loginService', function($scope, loginService) {
       $scope.email = null;
       $scope.pass = null;
@@ -46,20 +46,23 @@ angular.module('SparkApp.controllers', [])
       };
    }]) //end loginctrl
    
-
+   
    .controller('ListCtrl', ['$scope', 'FBURL', 'angularFire', '$http', function($scope, FBURL, angularFire, $http) {
       angularFire(FBURL+'/syncedValue', $scope, 'syncedValue', '');
       
     $scope.apiKey = "WfS8an7aqWaOjYzGnPIfCAJkMi1wd0Us";
 	//array to hold processed results
 	$scope.results = [];
-	$scope.filterText = null;
-	$scope.availableFields = [];
-    $scope.fieldFilter = null;
+	$scope.currentPage = 1;
+	$scope.numPerPage = 10;
+	$scope.maxPgs = 5;
+	//$scope.filterText = null;
+	//$scope.availableFields = [];
+    //$scope.fieldFilter = null;
     //takes field value and sets $scope.fieldFilter to the value
-    $scope.setFieldFilter = function(field) {
-    	$scope.fieldFilter = field;
-	}
+    //$scope.setFieldFilter = function(field) {
+    	//$scope.fieldFilter = field;
+	//}
     $scope.init = function() {
         
         /* BEHANCE api call *//**/
@@ -75,24 +78,31 @@ angular.module('SparkApp.controllers', [])
 				console.log($scope.results); //returns array of objects (projects)
                 
                 //Loop through each field for this project
-                angular.forEach(projects.field, function(field, index){
+                //angular.forEach(projects.field, function(field, index){
                     //Only add to the availableFields array if it doesn't already exist
-                    var exists = false;
-                    angular.forEach($scope.availableFields, function(avField, index){
-                        if (avField == field) {
-                            exists = true;
-                        }
-                    });
-                    if (exists === false) {
-                        $scope.availableFields.push(field);
-                    }
-                });
+                    //var exists = false;
+                    //angular.forEach($scope.availableFields, function(avField, index){
+                        //if (avField == field) {
+                            //exists = true;
+                        //}
+                    //});
+                    //if (exists === false) {
+                        //$scope.availableFields.push(field);
+                    //}
+                //});
             });	
 		})
         .error(function(error) {
  
         });
     };
+    // TESTING PAGINATION http://stackoverflow.com/questions/10816073/how-to-do-paging-in-angularjs
+    $scope.$watch('currentPage + numPerPage', function() {
+    var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+    , end = begin + $scope.numPerPage;
+
+    $scope.filteredTodos = $scope.todos.slice(begin, end);
+  });
    }])
 
 
@@ -114,7 +124,7 @@ angular.module('SparkApp.controllers', [])
    }])
 
 
-.controller('AccountCtrl', ['$scope', 'loginService', 'angularFire', 'FBURL', '$timeout', function($scope, loginService, angularFire, FBURL, $timeout) {
+   .controller('AccountCtrl', ['$scope', 'loginService', 'angularFire', 'FBURL', '$timeout', function($scope, loginService, angularFire, FBURL, $timeout) {
 
       angularFire(FBURL+'/users/'+$scope.auth.id, $scope, 'user', {});
 

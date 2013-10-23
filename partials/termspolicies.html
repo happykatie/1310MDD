@@ -1,0 +1,73 @@
+<nav class="navbar-sm navbar-default navbar-inverse" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="#/projectlist">Feed</a></li>
+      <li><a href="#">Profile</a></li>
+      <li ng-show="auth"><a href="#/account">Update</a></li>
+      <li class="dropdown active">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#/reportproblem">Report a Problem</a></li>
+          <li><a href="#/termspolicies">Terms and Policies</a></li>
+          <li><a href="#/helpfaq">Help and FAQ</a></li>
+        </ul>
+      </li>
+      <li ng-click="logout()"><a href="#/login">Logout</a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+<!-- ---------------- END NAV ------------------ -->
+
+<div class="col-sm-12">
+
+<h2>Terms and Policies</h2>
+
+<form class="form-horizontal" role="form">
+    <fieldset>
+    
+        <legend>Terms of Use</legend>
+		<div class="form-group">
+		<p>These Terms of Use (“Terms”) govern your use of Spark Inc. (“Spark”) web sites or services (“Services”) referencing these Terms.  You can’t use our Services unless you agree to them, so please read them carefully.   Before using any of the Services, you are required to read, understand and agree to these terms. You may only access the Services after reading and accepting these Terms of Use.</p>
+		
+        <label class="col-xs-12">
+            <span>1. Your Agreement With Spark.</span>
+            <p>1.1 Choice of Law. Your relationship is with Spark, a United States company, and you agree to be bound by the laws of Florida and the laws of the United States.</p>
+			<p>1.2 You agree that Spark can use the data you provide to us in accordance with our Privacy Policy, which is incorporated herein by reference.</p>
+			
+			<span>2. Your Content.</span>
+			<p>2.1 Ownership:   You retain all rights and ownership in your content.  Spark does not claim any ownership rights in your content.</p>
+			<p>2.2 Termination of License.  You may terminate this license at any time by removing your content from the Services.  However, you agree that Spark may retain and use copies of your content for archival or backup purposes and for the investigation purpose mentioned later.</p>
+			
+			<span>3. User Conduct.</span>
+			<p>3.1 Don’t Abuse The Services: Please don’t use the Services to do anything unlawful, infringing, disruptive, harmful, threatening, abusive, tortious, defamatory, libelous, lewd, profane, obscene, hateful or otherwise objectionable.  While you are free to promote your Creative Work on Spark, do not spam other users via messaging or project comments.  Don’t phish or collect other people’s information without their consent.  Don’t frame our Services or our website without our approval.  Don’t copy or imitate our design, layout, or look-and-feel of the Service.  Only use our Service to post your own creative work.  Don’t use the Services as a generic image hosting service such as for banner advertisements, etc. If Spark decides that your conduct violates the Terms of Use or our Community Guidelines, which are incorporated here by reference, we may remove your content or disable your use of the Services at any time, with or without notice to you.</p>
+        </label>
+		</div>
+	</fieldset>	
+	
+	
+	<fieldset>	
+		<legend>Community Guidelines</legend>
+		<div class="form-group">
+		
+        <label class="col-xs-12">
+            <span>1. Respect Intellectual Property Rights: </span>
+            <p>1.1 Don't present other people's work as your own or overstate your own role in creating something. Don't use other people's trademarks without permission. If you aren't sure whether your use of someone else's content or trademark in your own work is legal, you can consult publicly available reference materials at the U.S. Copyright Office website, the U.S. Patent & Trademark Office website, the Chilling Effects website, or talk to an intellectual property attorney. If you want to report misuse of your own creative work or your own trademark by one of our users, you can do that <a href="katieroberts@fullsail.edu">here</a>.</p>
+						
+			<span>2. Respect Privacy: </span>
+			<p>2.1 Don't use Spark to reveal private information about other people. And don't upload photographic portraits or nude images of identifiable people unless you have their permission.</p>
+			
+        </label>
+		</div>
+    </fieldset>
+</form>
