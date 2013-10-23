@@ -13,9 +13,9 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li ng-show="auth"><a href="#/projectlist">Feed</a></li>
-      <li ng-show="auth"><a href="#/profile">Profile</a></li>
+      <li class="active" ng-show="auth"><a href="#/profile">Profile</a></li>
       <li ng-show="auth"><a href="#/account">Update</a></li>
-      <li class="dropdown active">
+      <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="#/reportproblem">Report a Problem</a></li>
@@ -31,35 +31,26 @@
 
 <div class="col-sm-12">
 
-<h2>Help and FAQ</h2>
+<br />
+<!--<p class="status good" ng-show="auth" ng-model="user.name" ng-cloak>{{user.name}}, you are logged in</p>-->
+<p class="status" ng-hide="auth" ng-cloak>You are not logged in</p>
+
+<h2>Profile</h2>
 
 <form class="form-horizontal" role="form">
-	
-	<fieldset>
-        <legend>How do I create an Account?</legend>
-		<div class="form-group">
-        <label class="col-xs-12">
-            <span>Sign up with email and select "Create Account" from the login page, and then modify your info on the "Update" page.</span>
-        </label>
-		</div>
-	</fieldset>
-	
     <fieldset>
-        <legend>How do I edit or update my profile?</legend>
+        <legend ng-model="user.name">{{user.name}}</legend>
+		
+		
+		
 		<div class="form-group">
         <label class="col-xs-12">
-            <span>You can simply click "Update" from the top navigation menu, and then choose the input field that you would like to modify.</span>
+            <span ng-model="user.email">{{user.email}}</span>
         </label>
 		</div>
-	</fieldset>	
-	
-	<fieldset>
-        <legend>How do I change my password?</legend>
-		<div class="form-group">
-        <label class="col-xs-12">
-            <span>Select "Update" from the top navigation menu, and then enter your password information into the appropriate fields.</span>
-        </label>
-		</div>
-	</fieldset>
-	
+    </fieldset>
+
+    
 </form>
+
+</div>

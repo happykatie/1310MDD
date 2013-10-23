@@ -12,7 +12,7 @@ angular.module('SparkApp.mainController', [])
 
       $scope.login = function(callback) {
          $scope.err = null;
-         loginService.login($scope.email, $scope.pass, '/account', function(err, user) {
+         loginService.login($scope.email, $scope.pass, '/projectlist', function(err, user) {
             $scope.err = err||null;
             typeof(callback) === 'function' && callback(err, user);
          });
@@ -96,15 +96,51 @@ angular.module('SparkApp.mainController', [])
  
         });
     };
+    /*
     // TESTING PAGINATION http://stackoverflow.com/questions/10816073/how-to-do-paging-in-angularjs
     $scope.$watch('currentPage + numPerPage', function() {
     var begin = (($scope.currentPage - 1) * $scope.numPerPage)
     , end = begin + $scope.numPerPage;
 
     $scope.filteredTodos = $scope.todos.slice(begin, end);
-  });
+	});
+  	*/
    }])
 
+   .controller('DetailCtrl', ['$scope', 'FBURL', 'angularFire', '$http', function($scope, FBURL, angularFire, $http) {
+      angularFire(FBURL+'/syncedValue', $scope, 'syncedValue', '');
+      
+    $scope.apiKey = "WfS8an7aqWaOjYzGnPIfCAJkMi1wd0Us";
+	//array to hold processed results
+	$scope.results = [];
+	$scope.projectId = 11617727;
+	
+	$scope.currentPage = 1;
+	$scope.numPerPage = 10;
+	$scope.maxPgs = 5;
+	
+    $scope.init = function() {
+        
+        /* BEHANCE api call *//**/
+        $http.jsonp('http://www.behance.net/v2/projects/'+ $scope.projectId +'?api_key='+ $scope.apiKey +'&page=1&callback=JSON_CALLBACK')
+        .success(function(data) {
+        	
+        	console.log(data.projects); //============================
+        	
+			//Loop through each projects, push it to the results array
+			angular.forEach(data.projects, function(projects, index){
+                
+                $scope.results.push(projects);
+				console.log($scope.results); //returns array of objects (projects)
+                
+            });	
+		})
+        .error(function(error) {
+ 
+        });
+    };
+    
+   }])
 
    .controller('MyCtrl2', ['$scope', 'FBURL', 'Firebase', 'angularFireCollection', function($scope, FBURL, Firebase, angularFireCollection) {
       $scope.newMessage = null;

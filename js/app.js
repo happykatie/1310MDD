@@ -26,7 +26,13 @@ var app = angular.module('SparkApp',
          templateUrl: 'partials/view2.html',
          controller: 'MyCtrl2'
       });
-
+	  
+	  $routeProvider.when('/profile', {
+         authRequired: true,
+         templateUrl: 'partials/profile.html',
+         controller: 'AccountCtrl'
+      });
+      
       $routeProvider.when('/account', {
          authRequired: true,
          templateUrl: 'partials/account.html',

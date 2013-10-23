@@ -28,9 +28,9 @@
   
     <button ng-click="login()" ng-hide="createMode" type="button" class="btn btn-primary btn-sm">Log In</button>
     
-    <button ng-click="createMode = true" ng-hide="createMode" type="button" class="btn btn-primary btn-sm">Create Account</button>
+    <button ng-click="createMode = true" ng-hide="createMode" type="button" class="btn btn-default btn-sm">Create Account</button>
     
-    <button ng-cloak ng-show="createMode" ng-click="createAccount()" type="button" class="btn btn-primary btn-sm">Ready to Create</button>
+    <button ng-cloak ng-show="createMode" ng-click="createAccount()" type="button" class="btn btn-default btn-sm">Ready to Create</button>
 
     <p ng-show="err" class="error">{{err}}</p>
     
