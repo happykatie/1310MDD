@@ -30,3 +30,17 @@ Still working on CRUD functionality - having trouble setting up firebase db
 Most recent sql dump = assets/sql/mdd1310_2013-10-16.sql
 Implemented password salting 
 
+[4.1]
+Now using the AngularJS MV* framework properly (controller = mainController.js, views = partials/, services.js communicates with db)
+Now using Firebase for online data storage and user auth (php files have been removed)
+Create a new account or Login to see my user account (email: katie4@test.com, pw: pass123)
+Feed displays recently posted design project list
+- Sometimes when returning to Feed view, validation text says user is logged out. Usually corrects itself after a few seconds, but I had to refresh the page a few times to get a "logged in message".
+- Pagination at bottom of feed page is not working. Each Behance API request only returns 12 objects at a time, but you get the idea on the first page.
+- "View Details" should display a project detail (project-detail.html), but controller logic is not correct
+- Clicking the project title will take you to the Behance project detail view
+Update view, modify account info or change password
+Profile view displays the updated account info
+Help dropdown includes Report a problem, Terms and policies, Help and faq
+Logout returns user to login page
+
