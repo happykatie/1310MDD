@@ -32,14 +32,14 @@
 <div class="col-sm-12">
 
 <br />
-<p class="status good" ng-show="auth" ng-model="user.name" ng-cloak>{{user.name}}, you are logged in</p>
+<!--<p class="status good" ng-show="auth" ng-cloak>{{user.name}}, you are logged in</p>-->
 <p class="status" ng-hide="auth" ng-cloak>You are not logged in</p>
 
 <h2>Account</h2>
 
 <form class="form-horizontal" role="form">
     <fieldset>
-        <legend>Update Profile</legend>
+        <legend ng-model="user.name">Update Profile</legend>
 		
 		<div class="form-group">
         <label class="col-xs-12">
@@ -50,9 +50,38 @@
 		
 		<div class="form-group">
         <label class="col-xs-12">
+            <span>Birthday:</span>
+            <input type="text" name="name" ng-model="user.birthdate" class="form-control input-sm" />
+        </label>
+		</div>
+		
+		<div class="form-group">
+        <label class="col-xs-12">
+            <span>Location:</span>
+            <input type="text" name="name" ng-model="user.location" class="form-control input-sm" />
+        </label>
+		</div>
+		
+		<div class="form-group">
+        <label class="col-xs-12">
             <span>Email:</span>
             <input type="text" name="name" ng-model="user.email" class="form-control input-sm" />
         </label>
+		</div>
+		
+		<div class="form-group">
+        <label class="col-xs-12">
+            <span>Bio:</span>
+            <textarea type="text" name="name" ng-model="user.bio" class="form-control input-sm" rows="3"></textarea>
+        </label>
+		</div>
+		
+		<div class="form-group">
+		<label for="exampleInputFile" class="col-xs-12">
+			<span>Profile Image</span>
+			<input type="file" id="exampleInputFile" ng-model="user.img">
+			<p class="help-block">Browse and upload your profile image.</p>
+		</label>	
 		</div>
     </fieldset>
 

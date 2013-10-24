@@ -32,20 +32,41 @@
 <div class="col-sm-12">
 
 <br />
-<!--<p class="status good" ng-show="auth" ng-model="user.name" ng-cloak>{{user.name}}, you are logged in</p>-->
+
 <p class="status" ng-hide="auth" ng-cloak>You are not logged in</p>
 
 <h2>Profile</h2>
 
 <form class="form-horizontal" role="form">
     <fieldset>
+    	
         <legend ng-model="user.name">{{user.name}}</legend>
 		
-		
+		<div class="form-group col-xs-12">
+            <img src="{{user.img}}" class="img-thumbnail" ng-model="user.img">
+		</div>
 		
 		<div class="form-group">
         <label class="col-xs-12">
-            <span ng-model="user.email">{{user.email}}</span>
+            <span ng-model="user.birthdate">Birthday: {{user.birthdate}}</span>
+        </label>
+		</div>
+		
+		<div class="form-group">
+        <label class="col-xs-12">
+            <span ng-model="user.location">Location: {{user.location}}</span>
+        </label>
+		</div>
+		
+		<div class="form-group">
+        <label class="col-xs-12">
+            <span ng-model="user.email">Contact: {{user.email}}</span>
+        </label>
+		</div>
+		
+		<div class="form-group">
+        <label class="col-xs-12">
+            <span ng-model="user.bio">Bio: {{user.bio}}</span>
         </label>
 		</div>
     </fieldset>

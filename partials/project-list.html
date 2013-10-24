@@ -33,7 +33,7 @@
 <p class="status good" ng-show="auth" ng-cloak>You are logged in</p>
 <p class="status" ng-hide="auth" ng-cloak>You are not logged in</p>
 	
-	<!-- REMOVING SEARCH FOR TESTING
+	<!-- SEARCH - WORK IN PROGRESS
 	<div class="search-box row form-inline">
 		<label>Filter: </label>
 		use ng-model to bind input to the $scope.filterText variable
@@ -62,7 +62,7 @@
 						<li>Published: {{projects.published_on | date:'medium'}}</li>
 						<li>ID: {{projects.id}}</li>
 						<br />
-						<div class="detailsbtn"><a class="btn btn-default btn-sm" href="#/projectdetail">View Details</a></div>
+						<div class="detailsbtn" ng-model="projects.id"><a class="btn btn-default btn-sm" href="#/projectdetail">View Details</a></div>
 					</ul>
 					
 					<div class="ratings"><strong>Appreciations:</strong><span class="label glyphicon glyphicon-star"><i class="icon-star"></i></span><strong>{{projects.stats.appreciations}}</strong></div>

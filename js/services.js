@@ -55,8 +55,8 @@
                   }
                },
 
-               createAccount: function(email, pass, callback) {
-                  angularFireAuth._authClient.createUser(email, pass, function(err, user) {
+               createAccount: function(email, pass, bio, birthdate, location, img, callback) {
+                  angularFireAuth._authClient.createUser(email, pass, bio, birthdate, location, img, function(err, user) {
                      if( callback ) {
                         callback(err, user);
                         $rootScope.$apply();
