@@ -44,3 +44,5 @@ Profile view displays the updated account info
 Help dropdown includes Report a problem, Terms and policies, Help and faq
 Logout ends session and returns user to login page
 
+[4.2]
+Fixed create new account issue in services.js and login.html. Users can now create new account.
